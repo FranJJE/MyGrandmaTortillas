@@ -43,19 +43,12 @@ public class CreditCard extends JPanelBackground implements Elegible {
         ImageIcon newBtnIcon = new ImageIcon("src\\main\\view\\images\\newCardIcon.png");
         newBtnIcon = scaleImage(newBtnIcon,100,100);
         newBtn = new JButton(newBtnIcon);
-        newBtn.setBackground(Color.white);
         newBtn.setFocusPainted(false);
-        newBtn.setOpaque(false);
         newBtn.setBorder(null);
         newBtn.setContentAreaFilled(false);
 
         selectCardBtn = new JButton();
-        selectCardBtn.setBackground(Color.white);
-        selectCardBtn.setFocusPainted(false);
-        selectCardBtn.setOpaque(false);
         selectCardBtn.setBorder(null);
-        selectCardBtn.setEnabled(true);
-        selectCardBtn.setVisible(true);
         selectCardBtn.setContentAreaFilled(false);
     }
 
