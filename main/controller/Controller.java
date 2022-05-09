@@ -14,5 +14,8 @@ public class Controller
         view = new GUI();
     }
 
+    public void events()
+    {
 
+    }
 }
