@@ -1,11 +1,13 @@
 package main.view;
 
+import main.models.Elegible;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class JPanelBackground extends JPanel {
-
-    private final Image img;
+public class JPanelBackground extends JPanel
+{
+    private Image img;
 
     public JPanelBackground(String img)
     {
@@ -23,7 +25,7 @@ public class JPanelBackground extends JPanel {
         setLayout(null);
     }
 
-    /*public void setBackground(String img)
+    public void setBackground(String img)
     {
         this.img = new ImageIcon(img).getImage();
     }
@@ -37,7 +39,7 @@ public class JPanelBackground extends JPanel {
         setMaximumSize(size);
         setSize(size);
         setLayout(null);
-    }*/
+    }
 
     public void paintComponent(Graphics g) {
         int width = this.getSize().width;
@@ -65,4 +67,5 @@ public class JPanelBackground extends JPanel {
 
         return new ImageIcon(icon.getImage().getScaledInstance(nw, nh, Image.SCALE_DEFAULT));
     }
+
 }

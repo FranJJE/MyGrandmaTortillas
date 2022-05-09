@@ -1,5 +1,6 @@
 package main.controller;
 
+import main.controller.events.EventClickSelectCard;
 import main.models.Model;
 import main.view.GUI;
 
@@ -12,10 +13,15 @@ public class Controller
     {
         model = new Model();
         view = new GUI();
+
+        events();
     }
 
     public void events()
     {
-
+        view.cc1.newBtn.addActionListener( new EventClickSelectCard());
+        view.cc2.newBtn.addActionListener( new EventClickSelectCard());
+        view.cc3.newBtn.addActionListener( new EventClickSelectCard());
+        view.cc4.newBtn.addActionListener( new EventClickSelectCard());
     }
 }

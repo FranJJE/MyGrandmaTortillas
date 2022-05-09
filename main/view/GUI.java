@@ -22,6 +22,8 @@ public class GUI {
             public JPanelBackground othersPanel = new JPanelBackground("src\\main\\view\\images\\othersBG.png");
             public JPanelBackground transactionsPanel = new JPanelBackground("src\\main\\view\\images\\transactionsBG.png");
 
+    public static JPanelBackground selectedPanel = null;
+
     public GUI()
     {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

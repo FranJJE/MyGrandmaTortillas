@@ -1,19 +1,21 @@
 package main.view;
 
+import main.models.Elegible;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class CreditCard extends JPanelBackground {
+public class CreditCard extends JPanelBackground implements Elegible {
     private String cardNumber = "3456 0824 7462 1234";
     private String expirationDate = "12/22";
     private int cvv = 123;
     private String pin;
 
-    private JLabel numLabel;
-    private JLabel expLabel;
-    private JLabel cvvLabel;
-    private JButton newBtn;
-    private JButton deleteBtn;
+    public JLabel numLabel;
+    public JLabel expLabel;
+    public JLabel cvvLabel;
+    public JButton newBtn;
+    public JButton deleteBtn;
 
     public CreditCard()
     {
@@ -45,4 +47,19 @@ public class CreditCard extends JPanelBackground {
         this.pin = pin;
     }
 
+    @Override
+    public void select()
+    {
+        setBackground("src\\main\\view\\images\\selectedCard.png");
+        newBtn.setVisible(false);
+        newBtn.setEnabled(false);  // Puede ser que se pueda quitar
+    }
+
+    @Override
+    public void unselect()
+    {
+        setBackground("src\\main\\view\\images\\emptyCard.png");
+        newBtn.setVisible(true);
+        newBtn.setEnabled(true);  // Puede ser que se pueda quitar
+    }
 }
