@@ -1,4 +1,4 @@
-package main.view;
+package main.view.components;
 
 import main.models.Elegible;
 
@@ -26,7 +26,6 @@ public class CreditCard extends JPanelBackground implements Elegible {
 
         setLayout( new BorderLayout());
         setOpaque(false);
-        add(dataPanel, BorderLayout.SOUTH);
         add(newBtn, BorderLayout.CENTER);
     }
 
@@ -36,12 +35,12 @@ public class CreditCard extends JPanelBackground implements Elegible {
         cvvLabel = new JLabel(String.valueOf(cvv));
         expDateLabel = new JLabel(expDate);
 
-        dataPanel = new JPanel( new FlowLayout(FlowLayout.LEFT,15,20));
+        dataPanel = new JPanel( new FlowLayout(FlowLayout.LEFT,13,15));
         dataPanel.setBackground(null);
         dataPanel.setOpaque(false);
 
         ImageIcon newBtnIcon = new ImageIcon("src\\main\\view\\images\\newCardIcon.png");
-        newBtnIcon = scaleImage(newBtnIcon,100,100);
+        newBtnIcon = scaleImage(newBtnIcon,this.getWidth()/8,this.getHeight()/8);
         newBtn = new JButton(newBtnIcon);
         newBtn.setFocusPainted(false);
         newBtn.setBorder(null);
@@ -85,6 +84,7 @@ public class CreditCard extends JPanelBackground implements Elegible {
     {
         remove(newBtn);
         add(selectCardBtn, BorderLayout.CENTER);
+        add(dataPanel, BorderLayout.SOUTH);
         dataPanel.add(expDateLabel);
         dataPanel.add(numLabel);
         dataPanel.add(cvvLabel);

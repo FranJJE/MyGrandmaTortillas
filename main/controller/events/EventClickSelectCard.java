@@ -1,8 +1,8 @@
 package main.controller.events;
 
-import main.view.CreditCard;
+import main.view.components.CreditCard;
 import main.view.GUI;
-import main.view.JPanelBackground;
+import main.view.components.JPanelBackground;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
