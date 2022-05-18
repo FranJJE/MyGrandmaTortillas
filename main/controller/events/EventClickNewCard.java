@@ -1,7 +1,7 @@
 package main.controller.events;
 
-import main.view.components.CreditCard;
-import main.view.GUI;
+import main.view.components.CreditCardPanel;
+import main.view.frames.HomeFrame;
 import main.view.components.JPanelBackground;
 
 import javax.swing.*;
@@ -17,17 +17,17 @@ public class EventClickNewCard implements ActionListener
         JPanelBackground panel = (JPanelBackground) btn.getParent();
         
 
-        if(GUI.selectedPanel instanceof CreditCard)
+        if(HomeFrame.selectedPanel instanceof CreditCardPanel)
         {
-            ((CreditCard) GUI.selectedPanel).unselect();
+            ((CreditCardPanel) HomeFrame.selectedPanel).unselect();
         }
 
-        if(panel instanceof CreditCard)
+        if(panel instanceof CreditCardPanel)
         {
-            ((CreditCard) panel).deleteNewCardBtn();
-            ((CreditCard) panel).select();
+            ((CreditCardPanel) panel).deleteNewCardBtn();
+            ((CreditCardPanel) panel).select();
         }
 
-        GUI.selectedPanel = panel;
+        HomeFrame.selectedPanel = panel;
     }
 }

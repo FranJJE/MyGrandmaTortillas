@@ -5,7 +5,7 @@ import main.models.Elegible;
 import javax.swing.*;
 import java.awt.*;
 
-public class CreditCard extends JPanelBackground implements Elegible {
+public class CreditCardPanel extends JPanelBackground implements Elegible {
     private String cardNumber = "3456 0824 7462 1234";
     private String expDate = "12/22";
     private int cvv = 123;
@@ -19,7 +19,7 @@ public class CreditCard extends JPanelBackground implements Elegible {
     public JButton deleteBtn;
     public JButton selectCardBtn;
 
-    public CreditCard()
+    public CreditCardPanel()
     {
         super("src\\main\\view\\images\\emptyCard.png");
         initComponents();

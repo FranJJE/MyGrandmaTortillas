@@ -1,4 +1,10 @@
 package main.models;
 
-public class Model {
+public class Model
+{
+    Database database = new Database();
+    public Model()
+    {
+
+    }
 }

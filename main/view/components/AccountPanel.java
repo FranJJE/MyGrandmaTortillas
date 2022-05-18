@@ -5,7 +5,7 @@ import main.models.Elegible;
 import javax.swing.*;
 import java.awt.*;
 
-public class Account extends JPanel implements Elegible
+public class AccountPanel extends JPanel implements Elegible
 {
 
     public JLabel titleLabel = new JLabel();
@@ -14,7 +14,7 @@ public class Account extends JPanel implements Elegible
         public JLabel ibanLabel = new JLabel("ES30 4279 4328 4324 3443");
         public JLabel totalLabel = new JLabel("45.454 €");
 
-    public Account()
+    public AccountPanel()
     {
         initComponents();
     }

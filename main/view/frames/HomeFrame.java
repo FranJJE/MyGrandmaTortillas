@@ -1,13 +1,12 @@
-package main.view;
+package main.view.frames;
 
 import main.view.components.*;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
 
-public class GUI {
+public class HomeFrame {
     //*********************************************** VARIABLES ******************************************************/
     public final int WIDTH = 1280;
     public final int HEIGHT = 820;
@@ -21,28 +20,27 @@ public class GUI {
         public final JPanel mainPanel = new JPanel();
             public final JPanel menuPanel = new JPanel();
             public final JPanel titlePanel = new JPanel();
-                public final JLabel logoLabel = new JLabel();
+                public final JLogoLabel logoLabel = new JLogoLabel("src\\main\\view\\images\\logo2.png",300,50);
             public final JPanel contentPanel = new JPanel();
                 public final JPanelBackground actionsPanel = new JPanelBackground("src\\main\\view\\images\\newsBG.png");
-                    public final Actions actions = new Actions();
+                    public final ActionsPanel actions = new ActionsPanel();
                 public final JPanelBackground accountsPanel = new JPanelBackground("src\\main\\view\\images\\accountsBG.png");
-                    public final Account account = new Account();
+                    public final AccountPanel accountPanel = new AccountPanel();
                 public final JPanel cardsPanel = new JPanel();
-                    public final CreditCard cc1 = new CreditCard();
-                    public final CreditCard cc2 = new CreditCard();
-                    public final CreditCard cc3 = new CreditCard();
-                    public final CreditCard cc4 = new CreditCard();
+                    public final CreditCardPanel cc1 = new CreditCardPanel();
+                    public final CreditCardPanel cc2 = new CreditCardPanel();
+                    public final CreditCardPanel cc3 = new CreditCardPanel();
+                    public final CreditCardPanel cc4 = new CreditCardPanel();
                 public final JPanelBackground cashFlowPanel = new JPanelBackground("src\\main\\view\\images\\othersBG.png");
-                    public final CashFlow cashFlow = new CashFlow();
+                    public final CashFlowPanel cashFlow = new CashFlowPanel();
                 public final JPanelBackground transactionsPanel = new JPanelBackground("src\\main\\view\\images\\transactionsBG.png");
-                    public final Transaction latestTransactions = new Transaction("Latest transactions");
+                    public final TransactionPanel latestTransactions = new TransactionPanel("Latest transactions");
 
 
     //************************************************ CONSTRUCTORS **************************************************/
-    public GUI()
+    public HomeFrame()
     {
         initComponents();
-        logoImage();
     }
 
     //*************************************************** METHODS ****************************************************/
@@ -90,7 +88,7 @@ public class GUI {
         frame.add(mainPanel);
         frame.pack();
         frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        frame.setVisible(false);
 
         //****** TOP LEFT POSITION ******/
         actionsPanel.setLayout( new FlowLayout( FlowLayout.LEFT,0,0));
@@ -101,7 +99,7 @@ public class GUI {
         accountsPanel.setLayout(null);
         accountsPanel.setBounds(460,20,610,200);
         accountsPanel.setOpaque(false);
-        accountsPanel.add(account);
+        accountsPanel.add(accountPanel);
 
         //****** MIDDLE POSITION ******/
         cardsPanel.setLayout( new GridLayout(1,4,20,0));
@@ -122,13 +120,4 @@ public class GUI {
         transactionsPanel.setBounds(460,410,610,300);
         transactionsPanel.add(latestTransactions);
     }
-
-    public void logoImage()
-    {
-        ImageIcon logo = new ImageIcon("src\\main\\view\\images\\logo2.png");
-        logo = new ImageProcessing().scaleImage(logo,300, (int)(HEIGHT*0.08));
-        logoLabel.setIcon(logo);
-    }
-
-
 }

@@ -3,19 +3,21 @@ package main.view.components;
 import javax.swing.*;
 import java.awt.*;
 
-public class CashFlow extends JPanel
+public class TransactionPanel extends JPanel
 {
-    public JLabel titleLabel;
+    public final JLabel titleLabel;
 
-    public CashFlow()
+    public TransactionPanel(String title)
     {
         setLayout( new FlowLayout(FlowLayout.LEFT,20,10));
         setBackground(Color.white);
 
-        titleLabel = new JLabel("Cashflow");
+        titleLabel = new JLabel(title);
         titleLabel.setFont( new Font("SansSerif", Font.BOLD,18));
         add(titleLabel);
     }
+
+
 
 
 }

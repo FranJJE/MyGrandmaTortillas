@@ -1,16 +1,15 @@
 package main.view.components;
 
-import main.view.ImageProcessing;
+import main.utilities.ImageProcessing;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.font.ImageGraphicAttribute;
 
-public class Actions extends JPanel
+public class ActionsPanel extends JPanel
 {
     public final JLabel titleLabel;
 
-    public Actions()
+    public ActionsPanel()
     {
         setLayout( new FlowLayout(FlowLayout.LEFT,20,10));
         setOpaque(false);
