@@ -9,7 +9,8 @@ public class CashFlow extends JPanel
 
     public CashFlow()
     {
-        setOpaque(false);
+        setLayout( new FlowLayout(FlowLayout.LEFT,20,10));
+        setBackground(Color.white);
 
         titleLabel = new JLabel("Cashflow");
         titleLabel.setFont( new Font("SansSerif", Font.BOLD,18));

@@ -9,7 +9,8 @@ public class Transaction extends JPanel
 
     public Transaction(String title)
     {
-        setOpaque(false);
+        setLayout( new FlowLayout(FlowLayout.LEFT,20,10));
+        setBackground(Color.white);
 
         titleLabel = new JLabel(title);
         titleLabel.setFont( new Font("SansSerif", Font.BOLD,18));

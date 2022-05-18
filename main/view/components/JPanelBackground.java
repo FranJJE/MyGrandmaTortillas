@@ -1,7 +1,5 @@
 package main.view.components;
 
-import main.models.Elegible;
-
 import javax.swing.*;
 import java.awt.*;
 
