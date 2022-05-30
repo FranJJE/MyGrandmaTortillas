@@ -1,19 +1,17 @@
 package main.view.components;
 
-import main.models.Elegible;
+import main.models.interfaces.Elegible;
+import main.view.fonts.CustomFont;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class CreditCardPanel extends JPanelBackground implements Elegible {
-    private String cardNumber = "3456 0824 7462 1234";
-    private String expDate = "12/22";
-    private int cvv = 123;
     private String pin;
 
     public JPanel dataPanel;
-        public JLabel numLabel;
-        public JLabel expDateLabel;
+        public JLabel cardnumLabel;
+        public JLabel expiryLabel;
         public JLabel cvvLabel;
     public JButton newBtn;
     public JButton deleteBtn;
@@ -31,13 +29,20 @@ public class CreditCardPanel extends JPanelBackground implements Elegible {
 
     public void initComponents()
     {
-        numLabel = new JLabel(cardNumber);
-        cvvLabel = new JLabel(String.valueOf(cvv));
-        expDateLabel = new JLabel(expDate);
+        cardnumLabel = new JLabel();
+        cvvLabel = new JLabel();
+        expiryLabel = new JLabel();
 
         dataPanel = new JPanel( new FlowLayout(FlowLayout.LEFT,13,15));
         dataPanel.setBackground(null);
         dataPanel.setOpaque(false);
+        dataPanel.add(expiryLabel);
+        dataPanel.add(cardnumLabel);
+        dataPanel.add(cvvLabel);
+        for(Component c : dataPanel.getComponents())
+        {
+            c.setFont( CustomFont.coolvetica(14) );
+        }
 
         ImageIcon newBtnIcon = new ImageIcon("src\\main\\view\\images\\newCardIcon.png");
         newBtnIcon = scaleImage(newBtnIcon,this.getWidth()/8,this.getHeight()/8);
@@ -85,9 +90,16 @@ public class CreditCardPanel extends JPanelBackground implements Elegible {
         remove(newBtn);
         add(selectCardBtn, BorderLayout.CENTER);
         add(dataPanel, BorderLayout.SOUTH);
-        dataPanel.add(expDateLabel);
-        dataPanel.add(numLabel);
-        dataPanel.add(cvvLabel);
+        revalidate();
+        repaint();
+    }
+
+    public void deleteCard()
+    {
+        setBackground("src\\main\\view\\images\\emptyCard.png");
+        add(newBtn);
+        remove(selectCardBtn);
+        remove(dataPanel);
         revalidate();
         repaint();
     }

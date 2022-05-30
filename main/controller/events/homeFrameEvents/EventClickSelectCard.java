@@ -1,5 +1,6 @@
-package main.controller.events;
+package main.controller.events.homeFrameEvents;
 
+import main.view.components.AccountPanel;
 import main.view.components.CreditCardPanel;
 import main.view.frames.HomeFrame;
 import main.view.components.JPanelBackground;
@@ -16,14 +17,18 @@ public class EventClickSelectCard implements ActionListener
         JButton btn = (JButton) e.getSource();
         JPanelBackground panel = (JPanelBackground) btn.getParent();
 
-        if(HomeFrame.selectedPanel instanceof CreditCardPanel)
-        {
+        if(HomeFrame.selectedPanel instanceof CreditCardPanel) {
             ((CreditCardPanel) HomeFrame.selectedPanel).unselect();
         }
-
-        if(panel instanceof CreditCardPanel)
-        {
+        if(panel instanceof CreditCardPanel) {
             ((CreditCardPanel) panel).select();
+        }
+
+        if(HomeFrame.selectedPanel instanceof AccountPanel) {
+            ((AccountPanel) HomeFrame.selectedPanel).unselect();
+        }
+        if(panel instanceof AccountPanel) {
+            ((AccountPanel) panel).select();
         }
 
         HomeFrame.selectedPanel = panel;

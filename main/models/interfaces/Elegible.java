@@ -1,4 +1,4 @@
-package main.models;
+package main.models.interfaces;
 
 public interface Elegible {
     void select();

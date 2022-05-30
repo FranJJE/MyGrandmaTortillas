@@ -1,60 +1,78 @@
 package main.view.components;
 
-import main.models.Elegible;
+import main.models.interfaces.Elegible;
+import main.view.fonts.CustomFont;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class AccountPanel extends JPanel implements Elegible
+public class AccountPanel extends JPanelBackground implements Elegible
 {
-
-    public JLabel titleLabel = new JLabel();
-    public JPanel contentPanel = new JPanel();
-        public JLabel holderLabel = new JLabel("Francisco Jesús Jimenez");
-        public JLabel ibanLabel = new JLabel("ES30 4279 4328 4324 3443");
-        public JLabel totalLabel = new JLabel("45.454 €");
+    public JButton selectBtn = new JButton();
+    public JLabel holderLabel = new JLabel();
+    public JLabel ibanLabel = new JLabel();
+    public JLabel euroLabel = new JLabel();
+    public JLabel balanceLabel = new JLabel();
 
     public AccountPanel()
     {
+        super("src\\main\\view\\images\\accountsBG.png");
         initComponents();
     }
 
     public void initComponents()
     {
         setLayout(null);
-        setBounds(0,0,610,200);
+        setBounds(0,50,610,200);
         setOpaque(false);
-        add(titleLabel);
-        add(contentPanel);
+        add(holderLabel);
+        add(ibanLabel);
+        add(euroLabel);
+        add(balanceLabel);
+        add(selectBtn);
 
-        titleLabel.setText("Account");
-        titleLabel.setBounds(20,10,570,50);
-        titleLabel.setFont( new Font("SansSerif", Font.BOLD,18));
+        selectBtn.setBounds(0,0,610,200);
+        selectBtn.setBackground(Color.white);
+        selectBtn.setOpaque(false);
+        selectBtn.setBorder(null);
+        selectBtn.setContentAreaFilled(false);
 
-        contentPanel.setLayout(null);
-        contentPanel.setBounds(20,100,570,150);
-        contentPanel.setOpaque(false);
-        contentPanel.add(holderLabel);
-        contentPanel.add(ibanLabel);
-        contentPanel.add(totalLabel);
+        holderLabel.setFont( CustomFont.coolvetica(32) );
+        holderLabel.setBounds(30,25,600,25);
 
-        holderLabel.setFont( new Font("SansSerif",Font.BOLD,18));
-        holderLabel.setBounds(20,0,250,25);
+        ibanLabel.setFont( CustomFont.coolvetica(32) );
+        ibanLabel.setBounds(30,75,600,25);
 
-        ibanLabel.setFont( new Font("SansSerif",Font.BOLD,18));
-        ibanLabel.setBounds(20,40,250,25);
+        euroLabel.setFont( CustomFont.coolvetica(32) );
+        euroLabel.setBounds(450,140,200,25);
 
-        totalLabel.setFont( new Font("SansSerif",Font.BOLD,28));
-        totalLabel.setBounds(350,0,230,50);
+        balanceLabel.setText("Current balance:");
+        balanceLabel.setFont( CustomFont.coolvetica(32) );
+        balanceLabel.setBounds(30,140,400,25);
+
+
+
     }
 
     @Override
     public void select() {
-
+        setBackground("src\\main\\view\\images\\accountsSelected.png");
+        for(Component data : this.getComponents())
+        {
+            data.setForeground(Color.white);
+        }
+        repaint();
+        revalidate();
     }
 
     @Override
     public void unselect() {
-
+        setBackground("src\\main\\view\\images\\accountsBG.png");
+        for(Component data : this.getComponents())
+        {
+            data.setForeground(Color.black);
+        }
+        repaint();
+        revalidate();
     }
 }
